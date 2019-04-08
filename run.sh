@@ -123,88 +123,10 @@ if [ $stage -le 4 ]; then
 fi
 
 if [ $stage -le 5 ]; then
-  new_data=data/train_tri4
+  new_data=data/train_tri3
   prev_gmm=$exp/tri2
   ali=$exp/tri2_ali
-  gmm=$exp/tri4
-
-  cp -r data/train $new_data
-  cat $prev_gmm/decode_train/scoring_kaldi/penalty_1.0/1.txt | sort > $new_data/text
-
-  steps/align_si.sh --nj $nj --cmd "$train_cmd" \
-                   $new_data data/lang $prev_gmm $ali
-
-  # train a first delta + delta-delta triphone system on a subset of 5000 utterances
-  steps/train_lda_mllt.sh --cmd "$train_cmd" \
-                          --splice-opts "--left-context=3 --right-context=3" 2500 15000 \
-                       $new_data data/lang $ali $gmm
-
-  utils/mkgraph.sh $lang_test \
-                   $gmm $gmm/graph
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/test $gmm/decode
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/train_correct $gmm/decode_train
-  rm -r $new_data
-fi
-
-if [ $stage -le 6 ]; then
-  new_data=data/train_tri5
-  prev_gmm=$exp/tri4
-  ali=$exp/tri4_ali
-  gmm=$exp/tri5
-
-  cp -r data/train $new_data
-  cat $prev_gmm/decode_train/scoring_kaldi/penalty_1.0/1.txt | sort > $new_data/text
-
-  steps/align_si.sh --nj $nj --cmd "$train_cmd" \
-                   $new_data data/lang $prev_gmm $ali
-
-  # train a first delta + delta-delta triphone system on a subset of 5000 utterances
-  steps/train_lda_mllt.sh --cmd "$train_cmd" \
-                          --splice-opts "--left-context=3 --right-context=3" 2500 15000 \
-                       $new_data data/lang $ali $gmm
-
-  utils/mkgraph.sh $lang_test \
-                   $gmm $gmm/graph
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/test $gmm/decode
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/train_correct $gmm/decode_train
-  rm -r $new_data
-fi
-
-if [ $stage -le 7 ]; then
-  new_data=data/train_tri6
-  prev_gmm=$exp/tri5
-  ali=$exp/tri5_ali
-  gmm=$exp/tri6
-
-  cp -r data/train $new_data
-  cat $prev_gmm/decode_train/scoring_kaldi/penalty_1.0/1.txt | sort > $new_data/text
-
-  steps/align_si.sh --nj $nj --cmd "$train_cmd" \
-                   $new_data data/lang $prev_gmm $ali
-
-  # train a first delta + delta-delta triphone system on a subset of 5000 utterances
-  steps/train_lda_mllt.sh --cmd "$train_cmd" \
-                          --splice-opts "--left-context=3 --right-context=3" 2500 15000 \
-                       $new_data data/lang $ali $gmm
-
-  utils/mkgraph.sh $lang_test \
-                   $gmm $gmm/graph
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/test $gmm/decode
-  steps/decode.sh --nj $nj --cmd "$decode_cmd" $gmm/graph \
-                  data/train_correct $gmm/decode_train
-  rm -r $new_data
-fi
-
-if [ $stage -le 8 ]; then
-  new_data=data/train_tri7
-  prev_gmm=$exp/tri6
-  ali=$exp/tri6_ali
-  gmm=$exp/tri7
+  gmm=$exp/tri3
 
   cp -r data/train $new_data
   cat $prev_gmm/decode_train/scoring_kaldi/penalty_1.0/1.txt | sort > $new_data/text
@@ -227,7 +149,7 @@ if [ $stage -le 8 ]; then
 fi
 
 log=$exp/log
-for dir in mono tri1 tri2 tri4 tri5 tri6 tri7; do
+for dir in mono tri1 tri2 tri3; do
   echo $dir >> $log
   bash local/score.sh data/test  $lang_test $exp/$dir/decode
   cat $exp/$dir/decode/scoring_kaldi/penalty_1.0/1.txt | sort  > $exp/$dir/decode/output.txt
