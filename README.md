@@ -59,7 +59,7 @@ In "Nonmatch" case,
 - Test the performane at word-level (WER)
 
 ## Reference
-1.[Unsupervised Speech Recognition via Segmental Empirical Output Distribution Matching, Chih-Kuan Yeh*et al.*] (https://arxiv.org/abs/1812.09323)
+1.[Unsupervised Speech Recognition via Segmental Empirical Output Distribution Matching](https://arxiv.org/abs/1812.09323), Chih-Kuan Yeh*et al.* 
 
 2.Completely Unsupervised Phoneme Recognition By A Generative AdversarialNetwork Harmonized With Iteratively Refined Hidden Markov Models,  Kuan-Yu Chen, Che-Ping Tsai *et.al.*
 
