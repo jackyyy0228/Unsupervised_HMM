@@ -1,6 +1,6 @@
 # unsupervised_HMM
 
-This is the implementation of unsupervised HMM in [our paper](#Citation).  HMM training followed the standard recipes of [Kaldi in TIMIT](https://github.com/kaldi-asr/kaldi/tree/master/egs/timit), except that we used the GAN-generated phoneme sequence[2](#Reference) to train the first  mono-phone model. Then, we used the HMMs to retranscribe the training set and used it to train the next HMM.
+This is the implementation of unsupervised HMM in [our paper](#Citation).  HMM training followed the standard recipes of [Kaldi in TIMIT](https://github.com/kaldi-asr/kaldi/tree/master/egs/timit), except that we used GAN-generated phoneme sequences <sup>[2](#Reference)</sup> to train the first  mono-phone model. Then, we used the HMMs to retranscribe the training set and used it to train the next HMM.
 
 <!--If you find this project helpful for your research, please do consider to cite our paper, thanks! -->
 
@@ -8,9 +8,9 @@ This is the implementation of unsupervised HMM in [our paper](#Citation).  HMM t
 
 ### Dependencies
 
--kaldi 
+1.kaldi 
 
--srilm (can be built with kaldi/tools/install_srilm.sh)
+2.srilm (can be built with kaldi/tools/install_srilm.sh)
 
 ### Path
 
