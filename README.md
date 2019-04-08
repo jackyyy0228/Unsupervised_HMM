@@ -1,4 +1,4 @@
-# Unsupervised_HMM
+# Unsupervised HMM
 
 This is the implementation of unsupervised HMM in [our paper](#Citation).  HMM training followed the standard recipes of [Kaldi in TIMIT](https://github.com/kaldi-asr/kaldi/tree/master/egs/timit), except that we used GAN-generated phoneme sequences <sup>[2](#Reference)</sup> to train the first  mono-phone model. Then, we used the HMMs to retranscribe the training set and used it to train the next HMM.
 
