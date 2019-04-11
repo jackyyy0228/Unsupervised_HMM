@@ -32,7 +32,7 @@ $  bash scripts/lat_lat_to_phones.sh $dir
 
 ## Results
 
-In "Match" case, 
+- In "Match" case, 
 
 |HMMs                    | iter1  |  iter2  | iter3  |
 |---------------------| ------- |-------- |-------- |
@@ -41,7 +41,7 @@ In "Match" case,
 |tri2(LDA+MLLT) | 31.77 | 27.54 | 26.62 |
 |tri3(LDA+MLLT) | **30.73** | **27.07** | **26.11** |
 
-In "Nonmatch" case,
+- In "Nonmatch" case,
 
 |HMMs                    | iter1  |  iter2  | iter3  |
 |---------------------| ------- |-------- |-------- |
@@ -50,7 +50,7 @@ In "Nonmatch" case,
 |tri2(LDA+MLLT) | 40.00 | 35.71 | 33.48 |
 |tri3(LDA+MLLT) | **39.48** | **35.46** | **33.07** |
 
-
+- Note that there is no improvement for further training (e.g. sat, sgmm, dnn) in Kaldi, so we stop training at LDA+MLLT.
 
 ## ToDo
 
