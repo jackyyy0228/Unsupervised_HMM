@@ -27,7 +27,7 @@ bash run.sh
 - Get phoneme alignment from lattices in decoding directory.
 
 ```
-$  bash local/lat_lat_to_phones.sh $dir
+$  bash local/lat_to_phones.sh $dir
 ```
 
 ## Results
