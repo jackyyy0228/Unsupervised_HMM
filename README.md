@@ -22,9 +22,13 @@ This is the implementation of unsupervised HMM in [our paper](#Citation).  HMM t
 bash run.sh
 ```
 
+- This script contains the training flow for GMM-HMM models, from monophone to tri2 (LDA+MLLT).
+
+- The trained model will decode the training set and generate new psuedo phoneme target sequence and then use it to trained next model.
+
 ### Alignment
 
-- Get phoneme alignment from lattices in decoding directory.
+- Get phoneme alignment from lattices in decoding directory, then we can get the new phoneme boundary to start the next iteration for GAN-HMM harmonization<sup>[2](#Reference)</sup>.
 
 ```
 $  bash local/lat_to_phones.sh $dir
