@@ -34,7 +34,7 @@ bash run.sh
 $  bash local/lat_to_phones.sh $dir
 ```
 
-or
+  or
 
 ```
 $  bash local/ali_to_frame.sh $dir
